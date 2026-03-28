@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nosso aniversario 💖</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #6f0d88;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 40px;
+  font-size: 34px;
+}
+
+.block {
+  background: white;
+  padding: 25px;
+  margin: 25px 0;
+  border-radius: 25px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  text-align: center;
+}
+
+.block h2 {
+  color: #7f0ca5;
+}
+
+.carta {
+  background: #da9fe9;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.polaroid {
+  background: white;
+  padding: 10px 10px 20px 10px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  transform: rotate(-2deg);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.polaroid img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #bd1818;
+  color: rgb(255, 255, 255);
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #e0d7da;
+  color: #7f0ca5;
+}
+
+.section-title {
+  text-align: center;
+  color: #b031d6;
+  font-size: 22px;
+  border-bottom: 3px dashed #f5ebda;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+}
+
+.gif-box,
+.imported-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.gif-box img,
+.imported-gallery img {
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-jogo {
+  display: block;
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: #b713e0;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-jogo:hover {
+  background: #b713e0;
+  color: white;
+}
+
+.memory-game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #b713e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.card.revelado {
+  background: #fdfdfd;
+}
+
+.coracao {
+  position: absolute;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  animation: pular 1s ease-in-out;
+}
+
+@keyframes pular {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.confetti {
+  position: fixed;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background-color: orange;
+  animation: fall 3s linear infinite;
+  border-radius: 50%;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10px); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.footer {
+  text-align: center;
+  color: #999;
+  margin: 40px 0 10px 0;
+  font-size: 13px;
+}
+
+.conquista {
+  background: #fff;
+  border-radius: 20px;
+  padding: 35px 30px;
+  max-width: 700px;
+  margin: 50px auto;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.conquista h2 {
+  color: #f7b845;
+  margin-bottom: 20px;
+}
+
+.texto-conquista {
+  color: #444;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.gif-conquista {
+  width: 220px;
+  max-width: 80%;
+  border-radius: 15px;
+  margin: 10px 0 20px;
+}
+
+.assinatura {
+  color: #f7b845;
+  font-style: normal;
+  font-size: 15px;
+}
+
+.confete {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: #f7b845;
+  opacity: 0.8;
+  animation: cair 3s linear forwards;
+  border-radius: 50%;
+  z-index: 9999;
+}
+
+@keyframes cair {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+#mural-musicas {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.musica-print {
+  position: absolute;
+  width: 160px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  animation: aparecerSumir 6s ease-in-out forwards;
+}
+
+@keyframes aparecerSumir {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>💕📎📎</h1>
+
+<!-- Músicas -->
+<div style="text-align:center; margin-bottom:20px;">
+  <button id="btnMusica" type="button">🎵 Tocar música</button>
+</div>
+
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+
+<!-- CARTA -->
+<div class="block carta" style="color:rgb(136, 19, 190)">
+  <h2>💌 para voce meu amor</h2>
+  <p>
+    esse site é uma junção das mais belas memórias que tenho de nós.
+    parte do que me faz lembrar de vc, e o que me faz pensar em nós. 💖
+  </p>
+</div>
+
+<!-- FOTOS SCRAPBOOK -->
+<div class="block" style="background:#eabdf3;">
+  <h2>📸 nossas memórias...</h2>
+  <div class="gallery">
+    <div class="polaroid">
+      <img src="foto1.jpg" alt="foto 1">
+      <p>🤍</p>
+    </div>
+    <div class="polaroid">
+      <img src="foto2.jpg" alt="foto 2">
+      <p>💞</p>
+    </div>
+    <div class="polaroid">
+      <img src="foto3.jpg" alt="foto 3">
+      <p>✨</p>
+    </div>
+    <div class="polaroid">
+      <img src="foto4.jpg" alt="foto 4">
+      <p>🌷</p>
+    </div>
+    <div class="polaroid">
+      <img src="foto5.jpg" alt="foto 5">
+      <p>💖</p>
+    </div>
+    <div class="polaroid">
+      <img src="foto6.jpg" alt="foto 6">
+      <p>💕</p>
+    </div>
+  </div>
+</div>
+
+<!-- gif -->
+<div class="block" style="background:#db95e9;">
+  <h2 class="section-title"></h2>
+  <div class="gif-box"><img src="4.gif" alt="gif 4"></div>
+  <h2 class="section-title"></h2>
+</div>
+
+<!-- MURAL DE MÚSICAS -->
+<div class="block" style="background:#db95e9;">
+  <h2 class="section-title">🎵 músicas que penso em voce</h2>
+  <div id="mural-musicas"></div>
+</div>
+
+<!-- frases -->
+<div class="block frases" style="background:#db95e9; color:#ca8ccc; text-align:center;">
+  <h2>💖 Coisas que amo em você</h2>
+  <p id="frase"></p>
+  <button onclick="novaFrase()">nova frase</button>
+</div>
+
+<!-- surpresa -->
+<div class="block surpresa-area" style="background:#db95e9; text-align:center;">
+  <h2>🎁 Um segredo pra você</h2>
+  <button onclick="surpresa()">clique aqui 💌</button>
+  <p id="surpresaTexto"></p>
+</div>
+
+<!-- gif -->
+<div class="block" style="background:#db95e9;">
+  <h2 class="section-title">✨ gifzinho</h2>
+  <div class="gif-box"><img src="1.gif" alt="gif 1"></div>
+</div>
+
+<!-- carta -->
+<div class="block carta" style="background:#db95e9; color:white">
+  <h2 class="section-title">💌</h2>
+  <p>OIII MEU AMOR!!</p>
+  <p>Meu amor, hoje fazem exatos 4 anos desde o início de tudo. Desde o primeiro beijo, o primeiro abraço, o primeiro sorriso.
+Durante esses 4 anos vivemos grandes aventuras, grandes apertos kkkk, tivemos grandes momentos incríveis um com o outro. Eu sou grato por estar mais um ano ao seu lado, compartilhando histórias, vivências do dia a dia, risos e lágrimas tbm. Amar vc é o sentimento mais incrível e puro que eu carrego dentro de mim, nunca foi difícil de me apaixonar por tudo em você, até pq, antes de qualquer toque ou conversa, eu já desejava você inteiramente. 
+Eu te amo infinitamente meu amor, todos os dias ao seu lado são incríveis e perfeitos, quero continuar ao seu lado por mais longos anos, até o último dia que me for concedido nesse nosso plano de vida.
+Você é tudo pra mim e eu te amarei para todo o sempre.
+
+Feliz 4 anos de nós. ❤️‍🩹🖇️</p>
+  <p>eu te amo demais meu amor 💕</p>
+</div>
+
+<!-- PLAYLIST -->
+<div class="block" style="background:#db95e9;">
+  <h2 class="section-title">🎶 músicas</h2>
+  <div class="imported-gallery" style="margin-top:15px; margin-bottom:15px;">
+    <a href="https://open.spotify.com/playlist/4mNOoVLtc9BM5x8fBpnqVd?si=iNL5CdaxTxuxersmwytCCw&pi=9sJqXc0XSCW_w" target="_blank" rel="noopener noreferrer" style="display:inline-block;">
+      <img src="codigo.jpeg" alt="playlist" style="cursor:pointer;">
+    </a>
+  </div>
+</div>
+
+<!-- MAIS GIFS -->
+<div class="block" style="background:#db95e9;">
+  <h2 class="section-title">✨ mais gifs</h2>
+  <div class="gif-box">
+    <img src="3.gif" alt="gif 3">
+    <img src="2.gif" alt="gif 2">
+  </div>
+</div>
+
+<div class="block" style="background:#db95e9;">
+  <button class="btn-jogo" onclick="document.getElementById('jogo-memoria').style.display='block'; iniciarMemoria();">
+    🧠 joguinho da memória!
+  </button>
+
+  <div id="jogo-memoria" style="display:none;">
+    <h2 class="section-title">jogo da Memória 💞</h2>
+    <div class="memory-game" id="tabuleiro"></div>
+  </div>
+</div>
+
+<div class="block" style="background:#db95e9;">
+  <button class="btn-jogo" onclick="document.getElementById('caca-coracoes').style.display='block'; iniciarJogo();">
+    🎯 pega-corações!!
+  </button>
+
+  <div id="caca-coracoes" style="display:none;">
+    <h2 class="section-title">💘 caça-Corações</h2>
+    <p style="text-align:center;">clique nos corações antes que eles sumam amor! ⏱️</p>
+
+    <div style="text-align:center;">
+      <strong>Pontos:</strong> <span id="pontos">0</span> |
+      <strong>Recorde:</strong> <span id="recorde">0</span> |
+      <strong>Tempo:</strong> <span id="tempo">30</span>s
+    </div>
+
+    <div id="campo-jogo" style="position:relative; width:100%; height:400px; background:#ffe4b8; border-radius:10px; margin-top:20px; overflow:hidden;">
+    </div>
+  </div>
+</div>
+
+<div class="footer">feito com muito carinho, eu te amo meu amor</div>
+
+</div>
+
+<script>
+const musica = document.getElementById("musica");
+const btnMusica = document.getElementById("btnMusica");
+let tocando = false;
+
+btnMusica.addEventListener("click", async () => {
+  try {
+    if (!tocando) {
+      await musica.play();
+      btnMusica.innerText = "⏸️ Pausar música";
+      tocando = true;
+    } else {
+      musica.pause();
+      btnMusica.innerText = "🎵 Tocar música";
+      tocando = false;
+    }
+  } catch (err) {
+    console.error("Erro ao tentar reproduzir o áudio:", err);
+    alert("erro na música");
+  }
+});
+
+const frases = [
+  "seu sorriso 🤍",
+  "sua boca 🍰",
+  "seus olhos 🌷",
+  "seu abraço 🏠",
+  "seu jeitinho ✨",
+  "sua personalidade 📙",
+  "sua coragem ⚔️",
+  "seus cabelos 😍",
+  "seu carinho 🤗",
+  "seu amor 💕"
+];
+
+function novaFrase() {
+  const random = Math.floor(Math.random() * frases.length);
+  document.getElementById("frase").innerHTML = frases[random];
+}
+
+novaFrase();
+
+function surpresa() {
+  document.getElementById("surpresaTexto").innerHTML = "eu te amo demais 💋💞";
+}
+
+function chuvaDeConfetes() {
+  for (let i = 0; i < 100; i++) {
+    const c = document.createElement("div");
+    c.classList.add("confetti");
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.backgroundColor = ["#f7b845", "#ffcf70", "#ffffff", "#ffb347"][Math.floor(Math.random() * 4)];
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 3000);
+  }
+}
+
+const emojis = ["❤️", "💙", "💚", "💛", "💖", "🧡", "🤎"];
+let selecionados = [];
+let cards = [];
+
+function iniciarMemoria() {
+  const tabuleiro = document.getElementById("tabuleiro");
+  tabuleiro.innerHTML = "";
+  selecionados = [];
+  cards = [...emojis, ...emojis].sort(() => 0.5 - Math.random());
+
+  cards.forEach((emoji) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.valor = emoji;
+    card.innerHTML = "?";
+    card.onclick = () => revelar(card);
+    tabuleiro.appendChild(card);
+  });
+}
+
+function revelar(card) {
+  if (card.classList.contains("revelado") || card.dataset.encontrado === "sim" || selecionados.length === 2) {
+    return;
+  }
+
+  card.innerHTML = card.dataset.valor;
+  card.classList.add("revelado");
+  selecionados.push(card);
+
+  if (selecionados.length === 2) {
+    setTimeout(() => {
+      if (selecionados[0].dataset.valor === selecionados[1].dataset.valor) {
+        selecionados[0].style.visibility = "hidden";
+        selecionados[1].style.visibility = "hidden";
+        selecionados[0].dataset.encontrado = "sim";
+        selecionados[1].dataset.encontrado = "sim";
+      } else {
+        selecionados[0].innerHTML = "?";
+        selecionados[1].innerHTML = "?";
+        selecionados[0].classList.remove("revelado");
+        selecionados[1].classList.remove("revelado");
+      }
+
+      selecionados = [];
+
+      if (document.querySelectorAll('#tabuleiro .card[data-encontrado="sim"]').length === cards.length) {
+        chuvaDeConfetes();
+        alert("parabéns amor! você terminou o jogo! 🥰");
+      }
+    }, 700);
+  }
+}
+
+let pontos = 0;
+let recorde = Number(localStorage.getItem("recordeCaca") || 0);
+let intervaloCaca = null;
+let cronCaca = null;
+document.getElementById("recorde").innerText = recorde;
+
+function iniciarJogo() {
+  pontos = 0;
+  let tempo = 30;
+  document.getElementById("pontos").innerText = pontos;
+  document.getElementById("tempo").innerText = tempo;
+
+  const campo = document.getElementById("campo-jogo");
+  campo.innerHTML = "";
+
+  if (intervaloCaca) {
+    clearInterval(intervaloCaca);
+  }
+
+  if (cronCaca) {
+    clearInterval(cronCaca);
+  }
+
+  intervaloCaca = setInterval(() => {
+    const cora = document.createElement("div");
+    cora.classList.add("coracao");
+    cora.innerText = "❤️";
+
+    cora.style.left = Math.random() * (campo.clientWidth - 30) + "px";
+    cora.style.top = Math.random() * (campo.clientHeight - 30) + "px";
+
+    campo.appendChild(cora);
+
+    cora.onclick = () => {
+      pontos++;
+      document.getElementById("pontos").innerText = pontos;
+      cora.remove();
+    };
+
+    setTimeout(() => {
+      if (cora.parentElement) {
+        cora.remove();
+      }
+    }, 1200);
+  }, 400);
+
+  cronCaca = setInterval(() => {
+    tempo--;
+    document.getElementById("tempo").innerText = tempo;
+
+    if (tempo <= 0) {
+      clearInterval(intervaloCaca);
+      clearInterval(cronCaca);
+      intervaloCaca = null;
+      cronCaca = null;
+
+      if (pontos > recorde) {
+        recorde = pontos;
+        localStorage.setItem("recordeCaca", recorde);
+        document.getElementById("recorde").innerText = recorde;
+      }
+
+      chuvaDeConfetes();
+      alert("⏰ Tempo esgotado! Você pegou " + pontos + " corações! PARABENSSSS 💖");
+    }
+  }, 1000);
+}
+
+function confetesBolsa() {
+  for (let i = 0; i < 80; i++) {
+    const confete = document.createElement("div");
+    confete.classList.add("confete");
+    confete.style.left = Math.random() * 100 + "vw";
+    confete.style.animationDuration = (Math.random() * 2 + 2) + "s";
+    confete.style.backgroundColor = ["#f7b845", "#ffcf70", "#ffffff", "#ffb347"][Math.floor(Math.random() * 4)];
+    document.body.appendChild(confete);
+
+    setTimeout(() => confete.remove(), 3000);
+  }
+}
+
+confetesBolsa();
+
+const imagensMusica = [
+  "musica1.png",
+  "musica2.png",
+  "musica3.png",
+  "musica8.png",
+  "musica9.png",
+  "musica14.png",
+  "musica15.png",
+  "musica16.png",
+  "musica17.png",
+  "musica18.png",
+  "musica19.png",
+  "musica20.png",
+  "musica21.png",
+  "musica22.png",
+  "musica23.png",
+  "musica24.png",
+  "musica25.png",
+  "musica32.png",
+  "musica33.png",
+  "musica34.png",
+  "musica35.png",
+  "musica36.png",
+  "musica37.png",
+  "musica42.png",
+  "musica45.png"
+];
+
+function criarPrintMusica() {
+  const mural = document.getElementById("mural-musicas");
+
+  if (!mural) {
+    return;
+  }
+
+  const img = document.createElement("img");
+  img.src = imagensMusica[Math.floor(Math.random() * imagensMusica.length)];
+  img.classList.add("musica-print");
+
+  img.style.left = Math.random() * Math.max(mural.clientWidth - 160, 0) + "px";
+  img.style.top = Math.random() * Math.max(mural.clientHeight - 200, 0) + "px";
+
+  mural.appendChild(img);
+
+  setTimeout(() => {
+    img.remove();
+  }, 7000);
+}
+
+setInterval(criarPrintMusica, 6000);
+criarPrintMusica();
+</script>
+</body>
+</html>
